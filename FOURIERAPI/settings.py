@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-^z=x7_t^d)szzyvv_(687=dbbwt5arsi5re!@__nvn+1eu65y4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app'] # Allow *.vercel.app
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1'] # Allow *.vercel.app
 
 
 # Application definition
@@ -76,11 +76,11 @@ WSGI_APPLICATION = "FOURIERAPI.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {"""
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }"""
+    }
 }
 
 

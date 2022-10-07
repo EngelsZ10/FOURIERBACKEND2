@@ -18,6 +18,7 @@ from django.urls import path
 import IPAPP.views
 
 urlpatterns = [
+    path("", IPAPP.views.index, name="index"),
     path("admin/", admin.site.urls),
     path("prueba/", IPAPP.views.Ascii, name="Ascii"),
 ]
