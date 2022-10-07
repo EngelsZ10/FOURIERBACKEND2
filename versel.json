@@ -1,11 +1,25 @@
 {
+    "version": 2,
     "builds": [{
-        "src": "FOURIERAPI/wsgi.py",
-        "use": "@ardnt/vercel-python-wsgi",
-        "config": { "maxLambdaSize": "15mb" }
-    }],
+            "src": "FOURIERAPI/wsgi.py",
+            "use": "@vercel/python",
+            "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
+        },
+        {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles_build"
+            }
+        }
+    ],
     "routes": [{
-        "src": "/(.*)",
-        "dest": "FOURIERAPI/wsgi.py"
-    }]
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "FOURIERAPI/wsgi.py"
+        }
+    ]
 }
